@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <form action="/processmessage"
+          method="post">
+        <input type="hidden" name="courseid" th:value="${courseid}" />
+        From :<select name="fromperson">
+        <option value="">select sender</option>
+        <option th:each="student : ${students}" th:value="${student.id}" th:text="${student.name}"></option>
+
+    </select><br />
+        To :<select name="toperson">
+        <option value="">select recipient</option>
+        <option th:each="student : ${students}" th:value="${student.id}" th:text="${student.name}"></option>
+
+    </select><br />
+        Message :<textarea rows="3" name="message" ></textarea>
+        <br />
+        <input type="checkbox" name="beEncrypted" value="encrypt"> Encrypt this message<br>
+        <input type="checkbox" name="beSigned" value="sign"> Sign this message<br>
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>

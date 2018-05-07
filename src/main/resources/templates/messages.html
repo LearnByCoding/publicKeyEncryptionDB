@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <h2>Messages</h2>
+    <h1>Course Confirmation</h1>
+    Id: <span th:text="${classroom.id}"></span><br />
+    Course Id: <span th:text="${classroom.courseid}"></span><br />
+    Passcode:  <span th:text="${classroom.passcode}"></span><br />
+    Head Shot: <span th:text="${classroom.headshot}"></span><br />
+    Teacher: <span th:text="${classroom.teacherName}"></span><br />
+    Course Name:  <span th:text="${classroom.courseName}"></span><br />
+    <a th:href="@{/sendmessage/{id}(id=${classroom.id})}">Make new message</a><br /><br />
+    <div th:each="message : ${messages}">
+        <span>From: <b th:text="${message.fromStudent}"></b></span><br />
+        <span>To: <b th:text="${message.toStudent}"></b> </span><br />
+        <h4>Message:</h4>
+        <p th:text="${message.body}"></p>
+        <h4>Signature:</h4>
+        <p th:text="${message.signature}"></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <h1>Course Confirmation</h1>
+    Id: <span th:text="${classroom.id}"></span><br />
+    Course Id: <span th:text="${classroom.courseid}"></span><br />
+    Passcode:  <span th:text="${classroom.passcode}"></span><br />
+    Head Shot: <span th:text="${classroom.headshot}"></span><br />
+    Teacher: <span th:text="${classroom.teacherName}"></span><br />
+    Course Name:  <span th:text="${classroom.courseName}"></span>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Headshot</th>
+            <th>Public</th>
+            <th>Private</th>
+        </tr>
+        <tr th:each="student : ${students}">
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.headshot}"></td>
+            <td th:text="${student.publicKey}"></td>
+            <td th:text="${student.privateKey}"></td>
+        </tr>
+    </table>
+</body>
+</html>
